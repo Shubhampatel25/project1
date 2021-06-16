@@ -1,0 +1,54 @@
+<%= form_with(model: property) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="field ">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rooms %>
+    <%= form.number_field :rooms, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bathroom %>
+    <%= form.text_field :bathroom, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= form.label :photo %>
+    <%= form.file_field :photo, class: "form-control"%>
+  </div>
+
+  <div class="control-group">
+     <%= form.label "Category", class: "control-label" %>
+    <div class= "controls">
+      <%= form.select(:category_type, options_for_select([['Rent', 'Rent'], ['Sale', 'Sale']]), { include_blank: true})%>
+    </div>
+  </div>
+<br />
+  <div class="actions">
+    <%= form.submit "Save Property", class: "btn btn-success" %>
+  </div>
+<br />  
+<% end %>

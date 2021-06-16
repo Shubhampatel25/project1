@@ -1,0 +1,45 @@
+<section class="main-photo main1">
+  <div>
+    <% if @property.photo.attached? %>
+     <%= image_tag(@property.thumbnail) %>
+    <% end %>  
+  </div> 
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col">   
+       <h4 style="text-transform: uppercase">
+         <%= @property.name %>
+        </h4> 
+        <p>
+          <strong>For</strong>
+          <strong><%= @property.category_type %></strong>
+        </p>
+
+        <p>
+          <strong>Address:</strong>
+          <%= @property.address %>
+        </p>
+
+        <p>
+          <strong>Price:</strong>
+          <%= @property.price %>
+        </p>
+
+        <p>
+         <strong>Rooms:</strong>
+         <%= @property.rooms %>
+        </p>
+
+        <p>
+          <strong>Bathroom:</strong>
+          <%= @property.bathroom %>
+        </p>
+        <div class="col-4">
+        <%= render "properties/agent_details" %>
+      </div>
+      </div>
+    </div>
+</div>
+</section>         
+

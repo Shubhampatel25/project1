@@ -1,0 +1,39 @@
+<h1>Properties</h1>
+<br />
+<table class="table table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Rooms</th>
+      <th>Bathroom</th>
+      <th>Photo</th>
+      <th>Category</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class="col-md-4">
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.name %></td>
+        <td><%= property.address %></td>
+        <td><%= property.price %></td>
+        <td><%= property.rooms %></td>
+        <td><%= property.bathroom %></td>
+        <% if property.photo.attached? %>
+         <td><%= image_tag property.photo, width: "200px"%></td>
+        <% end %>
+        <td><%= property.category_type %></td>
+        <td><%= link_to 'Edit', edit_property_path(property), class: "btn btn-success"  %></td>
+        <td><%= link_to 'Delete', property, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property', new_property_path, class: "btn btn-success" %>

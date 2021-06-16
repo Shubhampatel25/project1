@@ -1,0 +1,66 @@
+<main>
+
+ <section class="py-5 text-center shadow-sm  photo photo1">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="display-3">Search for your home today....</h1>
+          <%= link_to "View Property", properties_path, class:"btn btn-primary my-2" %>
+        </p>
+      </div>
+    </div>
+  </section>
+ <br /><br /><br />
+
+ <h2>Latest Property</h2>
+ <br /><br />
+
+     <div class="row">        
+        <% @properties.each do |property| %>
+          <div class="col-3" >
+            <div class="card mt-3 mb-4">
+              <% if property.photo.attached? %>
+              <%= image_tag property.photo, style:"width:100%; height: auto;"%>
+              <% end %>           
+             <div class="card-header" style="text-transform: uppercase">             
+              <h3><%= link_to property.name, property_path(property) %></h3><br>
+              <h5>For <%= property.category_type %></h5>
+             </div>
+             <div class="card-body">
+               <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><h6>Address</h6><%= property.address %></li>
+                  <li class="list-group-item"><h6>Price</h6><%= property.price %></li>
+                  <li class="list-group-item"><h6>Rooms</h6><%= property.rooms %></li>
+                  <li class="list-group-item"><h6>Bathroom</h6><%= property.bathroom %></li>
+                </ul>
+             </div>
+            </div> 
+          </div> 
+        <% end %>
+    </div>         
+
+
+ 
+
+ <br /><br />
+  
+  <br /><br /></br></br></br> <br /><br /></br></br></br>
+ <div class="container">
+    <!-- Example row of columns -->
+    <div class="row text-center pt-5 pb-5 mb-5 bg-light">
+      <div class="col-md-4">
+        <h3>Most Properties</h3>
+        <p>The most comprehensive property listings for sale. Search condos, terrace houses, apartments, bungalows, semi-d or more.</p>
+      </div>
+      <div class="col-md-4">
+        <h3>Most Rentals</h3>
+        <p>Looking to rent a home in a condo, apartment, studio apartment or terrace? We have the most comprehensive property listings in your area.</p>
+      </div>
+      <div class="col-md-4">
+        <h3>Property News</h3>
+        <p>Stay up to date on the property market with our informative blog posts. Get helpful tips on mortgages, choosing a property and more.</p>
+      </div>
+    </div>
+
+    <!-- <hr /> -->
+  </div>
+</main>
